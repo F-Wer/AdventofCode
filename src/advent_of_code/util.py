@@ -2,7 +2,7 @@ import requests
 
 def open_file(file):
     # Open txt file
-    f = open('1.txt')
+    f = open(file)
     inp = [int(i) for i in f.read().splitlines()]
     return inp
 
