@@ -1,16 +1,11 @@
 from advent_of_code.util import open_file, get_File
 
-
-
-
-
-
 def getFirst():
     i = 0
-    content = open_file('1.txt')
+    content = map(int,open_file('1.txt'))
     for line in content:
         try:
-            if line > val and line:
+            if int(line) > int(val) and line:
                     i = i + 1
                     print('Value', line, 'is greater than', val)
             else:
@@ -22,7 +17,7 @@ def getFirst():
 
 def getSecond():
     i = 0
-    content = open_file('1.txt')
+    content = list(map(int,open_file('1.txt')))
     for line in range(3, len(content)):
         if(content[line] > content[line-3]):
             i += 1
@@ -30,8 +25,8 @@ def getSecond():
 
 
 if __name__ == '__main__':
-    cookie = input('Enter your cookie: ')
-    get_File('https://adventofcode.com/2021/day/1/input', cookie)
+    # cookie = input('Enter your cookie: ')
+    # get_File('https://adventofcode.com/2021/day/1/input', cookie, '1')
     print(getFirst())
     print(getSecond())
 
