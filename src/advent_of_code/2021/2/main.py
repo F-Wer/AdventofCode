@@ -5,19 +5,14 @@ def getFirst():
     horizontal = 0
     content = open_file('2.txt')
     for line in content:
+        value = int(line.split()[1])
         try:
             if 'forward' in line:
-                splitf = line.split()
-                forward += int(splitf[1])
-                del splitf
+                forward += value
             elif 'up' in line:
-                splitu = line.split()
-                horizontal -= int(splitu[1])
-                del splitu
+                horizontal -= value
             else:
-                splith = line.split()
-                horizontal += int(splith[1])
-                del splith
+                horizontal += value
         except:
             print('ERROR')
     return forward * horizontal
@@ -30,23 +25,18 @@ def getSecond():
     depth = 0
     content = open_file('2.txt')
     for line in content:
+        value = int(line.split()[1])
         try:
             if 'forward' in line:
-                splitf = line.split()
-                horizontal += int(splitf[1])
-                depth = ( int(splitf[1]) * aim ) + depth
-                del splitf
+                horizontal += value
+                depth = ( value * aim ) + depth
             elif 'up' in line:
-               splitu = line.split()
-               aim -= int(splitu[1])
-               del splitu
+               aim -= value
             elif 'down' in line:
-                splith = line.split()
-                aim += int(splith[1])
-                del splith
+                aim += value
         except:
             print('ERROR')
-    return  horizontal , depth, aim
+    return  horizontal * depth
 
 
 def getRedditSolution():
@@ -69,9 +59,8 @@ def getRedditSolution():
 if __name__ == '__main__':
     cookie = input('Enter your cookie: ')
     get_File('https://adventofcode.com/2021/day/2/input', cookie, '2')
-    result = getSecond()
-    print(result)
-    print(result[0] * result[1])
+    print(getFirst())
+    print(getSecond())
 
 
 
