@@ -3,7 +3,7 @@ from advent_of_code.util import open_file, get_File
 def getFirst():
     forward = 0
     horizontal = 0
-    content = open_file('2.txt')
+    content = open_file('2.txt', mode = 'strings')
     for line in content:
         value = int(line.split()[1])
         try:
@@ -23,7 +23,7 @@ def getSecond():
     aim = 0
     horizontal = 0
     depth = 0
-    content = open_file('2.txt')
+    content = open_file('2.txt', mode = 'strings')
     for line in content:
         value = int(line.split()[1])
         try:
@@ -57,8 +57,8 @@ def getRedditSolution():
 
 
 if __name__ == '__main__':
-    cookie = input('Enter your cookie: ')
-    get_File('https://adventofcode.com/2021/day/2/input', cookie, '2')
+    # cookie = input('Enter your cookie: ')
+    # get_File('https://adventofcode.com/2021/day/2/input', cookie, '2')
     print(getFirst())
     print(getSecond())
 

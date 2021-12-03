@@ -5,17 +5,21 @@ import requests
 
 def open_file(file, **mode):
     # Open txt file
+    print(__file__)
     f = open(file)
-    if mode == 'numbers':
+    if mode.get("mode") == 'numbers':
         inp = [int(i) for i in f.read().splitlines()]
-    else:
+    elif mode.get("mode") == 'strings':
         inp = [i for i in f.read().splitlines()]
+    elif mode.get("mode") == 'binary':
+        inp = f.read()
     return inp
 
 def get_File(url, cookies, file):
+    path = os.path.realpath(__file__)
     cookies = {'session' : cookies}
     r = requests.get(url, cookies=cookies)
-    with open(file + '.txt', 'wb') as f:
+    with open(path + file + '.txt', 'wb') as f:
         f.write(r.content)
 
 def create_folders(year):
